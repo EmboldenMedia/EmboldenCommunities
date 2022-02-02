@@ -39,7 +39,9 @@
             </li>
             <li><a class="dropdown-item" href="#">Admin Portal</a></li>
             <li><a class="dropdown-item" href="#">My Profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </li>
           </ul>
         </li>
       </ul>
