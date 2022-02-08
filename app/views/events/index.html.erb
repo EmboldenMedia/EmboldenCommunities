@@ -1,7 +1,7 @@
 <%= render "partials/navbar.html.erb" %>
 
 <div class="container mt-5">
-  <div class="row p-3 border align-items-center rounded">
+  <div class="row p-3 align-items-center">
     <div class="col">
       <h1>Events</h1>
     </div>
@@ -21,19 +21,25 @@
   <div class="mx-auto border rounded p-3 mt-3" style="max-width: 800px;">
     <h3>Art painting with Laura</h3>
 
-    <ul>
+    <ul class="list-unstyled p-0 mt-4">
       <li>
-        Organizer: Laura Henderson
+        <span class="fw-bold">Organizer</span> <i class="fa fa-user"></i>: Laura Henderson
       </li>
       <li>
-        Time: February 10, 2022
+        <span class="fw-bold">Time</span> <i class="fa fa-clock-o"></i>: February 10, 2022
       </li>
       <li>
-        Total Spots: 10
+        <span class="fw-bold">Total Spots</span> <i class="fa fa-list-alt"></i>: 10
       </li>
       <li>
-        Cost: $10
+        <span class="fw-bold">Cost</span> <i class="fa fa-dollar"></i>: $10
       </li>
     </ul>
+
+    <div>
+      <p class="fw-bold">Description</p>
+
+      <p>This is the description here</p>
+    </div>
   </div>
 </div>
