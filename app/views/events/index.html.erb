@@ -1,7 +1,7 @@
 <%= render "partials/navbar.html.erb" %>
 
 <div class="container mt-5">
-  <div class="row p-3 align-items-center">
+  <div class="row pb-3 align-items-center">
     <div class="col">
       <h1>Events</h1>
     </div>
@@ -18,7 +18,34 @@
     </div>
   </div>
 
-  <div class="mx-auto border rounded p-3 mt-3" style="max-width: 800px;">
+  <div class="divider"></div>
+
+  <div class="mx-auto border rounded p-3 mt-4" style="max-width: 800px;">
+    <div id="event1" class="carousel slide mb-4" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#event1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#event1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="<%= asset_path "large_event.jpg" %>" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="<%= asset_path "large_event.jpg" %>" class="d-block w-100" alt="...">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#event1" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#event1" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
     <h3>Art painting with Laura</h3>
 
     <ul class="list-unstyled p-0 mt-4">
