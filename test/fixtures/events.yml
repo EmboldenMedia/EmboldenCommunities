@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  name: MyString
+  description: MyText
+  event_date: 2022-02-07 21:17:21
+  total_spots_remaining: 1
+  cost: 1.5
+
+two:
+  user_id: 1
+  name: MyString
+  description: MyText
+  event_date: 2022-02-07 21:17:21
+  total_spots_remaining: 1
+  cost: 1.5
