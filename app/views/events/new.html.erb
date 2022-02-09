@@ -3,5 +3,34 @@
 <div class="container my-5">
   <h1>Create New Event</h1>
 
-  <div class="dropzone"></div>
+  <form class="border p-4">
+    <div class="fw-bold mt-4">Event Name</div>
+
+    <input type="text" placeholder="Event Name" class="form-control mt-3" />
+
+    <div class="fw-bold mt-4">Event Date and Time</div>
+
+    <input type="text" placeholder="Event Date and Time" class="form-control mt-3 datepicker d-block" />
+
+    <div class="fw-bold mt-4">Spots Available (Optional)</div>
+
+    <input type="number" placeholder="Spots Available (Optional)" class="form-control mt-3" />
+
+    <div class="fw-bold mt-4">Cost (Optional)</div>
+
+    <input type="number" min="0" step=".01" placeholder="Cost (Optional)" class="form-control mt-3" />
+
+    <div class="fw-bold mt-4">Event Description</div>
+
+    <textarea class="form-control mt-3" placeholder="Event Description" rows="5"></textarea>
+
+    <div class="fw-bold mt-4">Photos (Max 4)</div>
+
+    <div class="dropzone mt-3"></div>
+
+    <div class="mt-4 d-flex">
+      <a href="/events" class="btn btn-danger">Cancel</a>
+      <button type="submit" class="btn btn-success ms-3">Create Event</button>
+    </div>
+  </div>
 </div>
