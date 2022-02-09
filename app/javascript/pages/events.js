@@ -62,4 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  if (dropzone) {
+    dropzone.on("queuecomplete", () => {
+      window.location.href = "/events";
+    });
+  }
 });
