@@ -2,14 +2,13 @@ import { Dropzone } from "dropzone";
 import Datepicker from "../../../vendor/js/datepicker/datepicker";
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.querySelector(".dropzone")) {
-    const authenticityToken = document.querySelector(
-      "input[name='authenticity_token']"
-    ).value;
+  let dropzone;
 
-    const dropzone = new Dropzone(".dropzone", {
-      url: `/events?authenticity_token=${authenticityToken}`,
+  if (document.querySelector(".dropzone")) {
+    dropzone = new Dropzone(".dropzone", {
+      url: "/events",
       maxFiles: 4,
+      autoProcessQueue: false,
     });
   }
 
@@ -23,6 +22,44 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelector("input[name='event_date']").value = isoDate;
         }
       },
+    });
+  }
+
+  if (document.querySelector("#new_event")) {
+    const authenticityToken = document.querySelector(
+      "input[name='authenticity_token']"
+    ).value;
+
+    document
+    .getElementById("new_event")
+    .addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      fetch(`/events?authenticity_token=${authenticityToken}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: document.querySelector("input[name='name']").value,
+          event_date: document.querySelector("input[name='event_date']").value,
+          total_spots_remaining: document.querySelector("input[name='total_spots_remaining']").value,
+          cost: document.querySelector("input[name='cost']").value,
+          description: document.querySelector("textarea[name='description']").value
+        })
+      })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Error processing new event");
+        }
+
+        return res.json();
+      })
+      .then((res) => {
+        dropzone.options.url = `/events/${res.id}/upload?authenticity_token=${authenticityToken}`;
+
+        dropzone.processQueue();
+      });
     });
   }
 });

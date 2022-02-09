@@ -6,13 +6,13 @@
   <%= form_for @new_event, html: { class: "border p-4" } do %>
     <input type="hidden" name="event_date" value="" />
 
-    <div class="fw-bold mt-4">Event Name</div>
+    <div class="fw-bold">Event Name</div>
 
     <input type="text" name="name" placeholder="Event Name" class="form-control mt-3" />
 
     <div class="fw-bold mt-4">Event Date and Time</div>
 
-    <input type="text" placeholder="Event Date and Time" class="form-control mt-3 datepicker d-block" />
+    <input type="text" name="event_date" placeholder="Event Date and Time" class="form-control mt-3 datepicker d-block" />
 
     <div class="fw-bold mt-4">Spots Available (Optional)</div>
 

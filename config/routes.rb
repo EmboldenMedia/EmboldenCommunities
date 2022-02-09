@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   
   root "home#index"
 
-  resources :events
+  resources :events do
+    post "/upload" => "events#upload_event_images"
+  end
 end
