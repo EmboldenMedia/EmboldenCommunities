@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 2022_02_09_080900) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
-    t.text "description"
-    t.datetime "event_date"
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.datetime "event_date", null: false
     t.integer "total_spots_remaining"
     t.float "cost"
     t.datetime "created_at", precision: 6, null: false
