@@ -3,10 +3,10 @@
 <div class="container my-5">
   <h1 class="mb-4">Create New Event</h1>
 
-  <form class="border p-4">
+  <%= form_for @new_event, html: { class: "border p-4" } do %>
     <div class="fw-bold mt-4">Event Name</div>
 
-    <input type="text" placeholder="Event Name" class="form-control mt-3" />
+    <input type="text" name="name" placeholder="Event Name" class="form-control mt-3" />
 
     <div class="fw-bold mt-4">Event Date and Time</div>
 
@@ -14,15 +14,15 @@
 
     <div class="fw-bold mt-4">Spots Available (Optional)</div>
 
-    <input type="number" placeholder="Spots Available (Optional)" class="form-control mt-3" />
+    <input type="number" name="total_spots_remaining" placeholder="Spots Available (Optional)" class="form-control mt-3" />
 
     <div class="fw-bold mt-4">Cost (Optional)</div>
 
-    <input type="number" min="0" step=".01" placeholder="Cost (Optional)" class="form-control mt-3" />
+    <input type="number" name="cost" min="0" step=".01" placeholder="Cost (Optional)" class="form-control mt-3" />
 
     <div class="fw-bold mt-4">Event Description</div>
 
-    <textarea class="form-control mt-3" placeholder="Event Description" rows="5"></textarea>
+    <textarea name="description" class="form-control mt-3" placeholder="Event Description" rows="5"></textarea>
 
     <div class="fw-bold mt-4">Photos (Max 4)</div>
 
@@ -33,4 +33,4 @@
       <button type="submit" class="btn btn-success ms-3">Create Event</button>
     </div>
   </div>
-</div>
+<% end %>

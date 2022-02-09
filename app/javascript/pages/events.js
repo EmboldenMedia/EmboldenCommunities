@@ -3,7 +3,9 @@ import Datepicker from "../../../vendor/js/datepicker/datepicker";
 
 document.addEventListener("DOMContentLoaded", function() {
   if (document.querySelector(".dropzone")) {
-    const dropzone = new Dropzone(".dropzone", { url: "/file/post", maxFiles: 4 });
+    const authenticityToken = document.querySelector("input[name='authenticity_token']").value;
+    
+    const dropzone = new Dropzone(".dropzone", { url: `/events?authenticity_token=${authenticityToken}`, maxFiles: 4 });
   }
 
   if (document.querySelector(".datepicker")) {
