@@ -4,6 +4,8 @@
   <h1 class="mb-4">Create New Event</h1>
 
   <%= form_for @new_event, html: { class: "border p-4" } do %>
+    <input type="hidden" name="event_date" value="" />
+
     <div class="fw-bold mt-4">Event Name</div>
 
     <input type="text" name="name" placeholder="Event Name" class="form-control mt-3" />
