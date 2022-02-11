@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
       url: "/events",
       maxFiles: 4,
       autoProcessQueue: false,
+      acceptedFiles: "image/*",
+      addRemoveLinks: true,
     });
   }
 
@@ -59,13 +61,20 @@ document.addEventListener("DOMContentLoaded", function () {
         dropzone.options.url = `/events/${res.id}/upload?authenticity_token=${authenticityToken}`;
 
         dropzone.processQueue();
+
+        window.location.href = "/events";
       });
     });
   }
 
   if (dropzone) {
-    dropzone.on("queuecomplete", () => {
-      window.location.href = "/events";
+    const eventPhotosError = document.getElementById("event-photos-error");
+
+    dropzone.on("maxfilesexceeded", (file) => {
+      eventPhotosError.innerHTML = "<i class='fa fa-exclamation-triangle'></i> You can only upload a maximum of 4 photos";
+      eventPhotosError.classList.remove("d-none");
+
+      dropzone.removeFile(file);
     });
   }
 });
