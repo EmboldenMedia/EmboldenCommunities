@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:upload_event_images]
   
   def index
+    @events = Event.all
   end
 
   def new

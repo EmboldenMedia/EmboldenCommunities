@@ -12,4 +12,6 @@ ActiveStorage.start();
 
 import "./bootstrap";
 
+import "../helpers/format_time";
+
 import "../pages/events";
