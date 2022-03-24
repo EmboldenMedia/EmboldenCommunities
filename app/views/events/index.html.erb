@@ -23,11 +23,11 @@
 
   <div class="divider"></div>
 
-  <% @events.in_groups_of(2) do |event_group| %>
+  <% @events.in_groups_of(3) do |event_group| %>
     <div class="row">
       <% event_group.each do |event| %>
         <% if event %>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <div class="mx-auto border rounded p-3 mt-4">
               <div id="event<%= event.id %>" class="carousel slide mb-4" data-bs-ride="carousel">
                 <div class="carousel-indicators">
