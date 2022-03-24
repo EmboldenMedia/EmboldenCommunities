@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   def upload_event_images
     event = Event.find(params[:event_id])
 
-    event.update(event_images: params[:event_images])
+    event.event_images.attach(params[:event_image])
 
     head 200
   end
