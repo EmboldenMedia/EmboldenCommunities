@@ -4,9 +4,17 @@ class EventsController < ApplicationController
   
   def index
     if params[:past]
-      @events = Event.where("event_date < ?", [Time.parse(params[:time_now])])
+      if params[:time_now]
+        @events = Event.where("event_date < ?", [Time.parse(params[:time_now])])
+      else
+        @events = Event.where("event_date < ?", [Time.now])
+      end
     else
-      @events = Event.all.order(event_date: :desc)
+      if params[:time_now]
+        @events = Event.where("event_date > ?", [Time.parse(params[:time_now])])
+      else
+        @events = Event.where("event_date > ?", [Time.now])
+      end
     end
   end
 

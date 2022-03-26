@@ -91,4 +91,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       window.location = `/events?past=true&time_now=${isoTime}`;
     });
+
+  document
+    .getElementById("events-upcoming-link")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const timeNow = new Date();
+      const isoTime = timeNow.toISOString();
+
+      window.location = `/events?time_now=${isoTime}`;
+    });
 });
