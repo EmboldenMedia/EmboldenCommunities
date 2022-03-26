@@ -3,7 +3,11 @@ class EventsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:upload_event_images]
   
   def index
-    @events = Event.all
+    if params[:past]
+      @events = Event.where("event_date < ?", [Time.parse(params[:time_now])])
+    else
+      @events = Event.all.order(event_date: :desc)
+    end
   end
 
   def new

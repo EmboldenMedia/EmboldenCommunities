@@ -80,4 +80,15 @@ document.addEventListener("DOMContentLoaded", function () {
       dropzone.removeFile(file);
     });
   }
+
+  document
+    .getElementById("events-past-link")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const timeNow = new Date();
+      const isoTime = timeNow.toISOString();
+
+      window.location = `/events?past=true&time_now=${isoTime}`;
+    });
 });
