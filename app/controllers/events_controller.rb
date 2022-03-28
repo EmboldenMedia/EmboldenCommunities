@@ -9,12 +9,16 @@ class EventsController < ApplicationController
       else
         @events = Event.where("event_date < ?", [Time.now])
       end
+
+      @past = true
     else
       if params[:time_now]
         @events = Event.where("event_date > ?", [Time.parse(params[:time_now])])
       else
         @events = Event.where("event_date > ?", [Time.now])
       end
+
+      @past = false
     end
   end
 
